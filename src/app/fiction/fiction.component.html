@@ -1,0 +1,94 @@
+<div class="myDiv">
+    <div *ngIf="fiction.length">
+        <!-- <h1 appDirectives>Review</h1> -->
+          <table align="center">
+          <tr >
+            <!-- <td><label for="search-text"><b>Search :</b> </label></td> -->
+            <td> <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+              [(ngModel)]="searchText" placeholder="Enter text to search"
+              autofocus></td>
+              <td><label for="search-text"><b>Sort :</b> </label></td>
+              <td><select [(ngModel)]='order'>
+                <option value = "false" >Ascending</option>
+                <option value = "true">Descending </option>
+             </select></td>
+             <td><app-update-fiction></app-update-fiction></td>
+          </tr>
+          
+        </table>
+                 
+        </div>
+        <br />
+        <!-- <div class="form-group" appDirectives>
+            <label for="search-text"><b>Sort :</b> </label>
+            <select [(ngModel)]='order'>
+                <option value = "true" >Ascending</option>
+                <option value = "false">Descending </option>
+             </select>
+            
+            <!-- <input type="text" class="form-control" id="sort-text" aria-describedby="sort-text"
+                   [(ngModel)]="sortText" placeholder="Enter text to sort"
+                   autofocus> -->
+          </div> 
+    <table align="center">
+      <tr>
+        <th appDirectives>Book ID</th>
+        <th appDirectives>Book Name</th>
+        <th appDirectives>Price</th>
+        <th appDirectives>Description</th>
+        <th appDirectives>Published Date</th>
+        <th appDirectives>Image</th>
+        <th style="background-color: white;"></th>
+        
+       </tr>
+      
+         <tr *ngFor="let fictions of fiction | filter: {bookID:searchText,bookName: searchText,Description:searchText,publishedDate:searchText}|sort: 'bookName': order; " appDirectives>
+         <!-- | filter: {id:searchText,name: searchText,reviewDate: searchText}|sort: 'name': order;" appDirectives>
+         -->
+         
+        <td >
+            
+          {{fictions.bookID}}
+          
+        </td>
+        <td>
+          {{fictions.bookName|titlecase}}
+          
+        </td>
+        <td [(ngModel)]="price">
+            {{fictions.bookPrice}}
+            
+          </td>
+        <td>
+          
+        {{fictions.Description}}
+        
+      </td>
+        <td>
+        
+        {{fictions.publishedDate}}
+        
+      </td>
+      <td>
+        
+          <img [src]='fictions.Image' class='image' />
+      
+      
+      
+    </td>
+    <td><button (click)='removeItem(fictions.bookID)'>Delete</button></td>
+      
+    
+
+      </tr>
+    </table>
+    
+      
+    
+      <div *ngIf="!fiction.length">
+        <h1>Reviews not available.....</h1>
+      </div>
+    
+    
+
+

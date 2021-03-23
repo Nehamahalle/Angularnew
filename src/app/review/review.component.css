@@ -1,0 +1,73 @@
+.image{
+    height:70px;
+    width:70px;
+}
+h1{  
+  padding: 20px;
+  background-color:lightgray;
+  color: white;
+  text-align: center;
+}
+th{
+    padding: 20px;
+    
+    color:black;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: grey;
+}
+table,td,tr{
+    padding: 20px;
+    /* border-collapse: collapse;
+    border-style: solid;
+    border-color: grey;   */
+    background-color: white; 
+}
+ .myDiv{
+   float:right;
+} 
+/* .form-group{
+    background-color:ivory;
+    font-size:x-large;
+} */
+.form-control{
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    
+    
+}
+button{
+    height:40px;
+    background-color: lightgray;
+    color:black;
+    border: none;
+}
+footer {
+    position: fixed; 
+    left: 0;
+   bottom: 0; 
+   width: 100%;
+   background-color:#004080;
+   color: white;
+   text-align: center;
+}
+ .addReview{
+    /* background-color:red; */
+    /* margin-top: 20px; */
+    float:left;
+    border: lightgray;
+    border-style: solid;
+    margin-left: 20px;
+    width:25%;
+    background-color: lightgray;
+   
+} 
+/* h3{
+    color:white;
+    background-color: black;
+} */

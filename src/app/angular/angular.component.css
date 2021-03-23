@@ -1,0 +1,46 @@
+.image{
+    height:70px;
+    width:70px;
+}
+h1{  
+  padding: 20px;
+  background-color: #80ccff;
+  color: white;
+  text-align: center;
+}
+th{
+    padding: 20px;
+    background-color: darkgray;
+    color:black;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: grey;
+    font-size: 15px;
+}
+table,td,tr{
+    padding: 20px;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color:gray;  
+    background-color: white; 
+    font-size: 15px;
+}
+.myDiv{
+    background-color: lightcyan;
+}
+.form-group{
+    background-color:ivory;
+    font-size:x-large;
+}
+.form-control{
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    
+    
+}
+

@@ -1,0 +1,71 @@
+<div class="myDiv">
+    <div *ngIf="product.length">
+        <h1 appDirectives>Product Details</h1>
+        <div class="form-group" appDirectives>
+          <label for="search-text"><b>Search :</b> </label>
+          <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+                 [(ngModel)]="searchText" placeholder="Enter text to search"
+                 autofocus>
+        </div>
+        <br />
+        <div class="form-group" appDirectives>
+            <label for="search-text"><b>Sort :</b> </label>
+            <select [(ngModel)]='order'>
+                <option value = "true" >Ascending</option>
+                <option value = "false">Descending </option>
+             </select>
+            
+            <!-- <input type="text" class="form-control" id="sort-text" aria-describedby="sort-text"
+                   [(ngModel)]="sortText" placeholder="Enter text to sort"
+                   autofocus> -->
+          </div>
+  <table align="center">
+    <tr>
+      <th appDirectives>Product Id</th>
+      <th appDirectives>Product Name</th>
+      <th appDirectives>Product Price</th>
+      <th appDirectives>Product Description</th>
+      <th appDirectives>Manufacture Date</th>
+      <th appDirectives>Product Image</th>
+     </tr>
+    
+       <tr *ngFor="let products of product | filter: {productID:searchText,productName: searchText,productPrice : searchText, productDescription:searchText}|sort: 'productName': false;" appDirectives>
+      
+       
+      <td >
+          <b>
+        {{products.productID}}
+        </b>
+      </td>
+      <td><b>
+        {{products.productName|titlecase}}
+        </b>
+      </td>
+      <td>
+          <b>
+        {{products.productPrice|currency:'INR':true}}
+        </b>
+      </td>
+      <td>
+          <b>
+        {{products.productDescription|titlecase}}
+        </b>
+      </td>
+      <td>
+        <b>
+      {{products.manufDate| date}}
+      </b>
+    </td>
+      <td>
+        <img [src]='products.productImage' class='image' />
+      </td>
+    </tr>
+  </table>
+  
+    
+  
+    <div *ngIf="!product.length">
+      <h1>Products not available.....</h1>
+    </div>
+  </div>
+  

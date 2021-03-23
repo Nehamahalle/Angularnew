@@ -1,0 +1,5 @@
+[
+    {"id":101, "name":"Dipali", "email":"dipali@gmail.com", "MobileNumber":9876543,"City":"Chikhali", "State":"Maharashtra", "customerImage": "../assets/neha.jpg"},
+    {"id":102, "name":"Preeti", "email":"preeti@gmail.com","MobileNumber":783232323,"City":"Wardha", "State":"MadhyaPradesh" , "customerImage": "../assets/preeti.jpg"},
+    {"id":103, "name":"Neha", "email":"neha@gmail.com","MobileNumber":783237773 ,"City":"Shegaon", "State":"Uttar Pradesh" , "customerImage": "../assets/dipali.jpg"} 
+   ]

@@ -1,0 +1,49 @@
+<!-- 
+ <div class="myDiv">
+     <table>
+         <tr>
+             <td><label>Username:</label></td>
+             <td><input type="text" name='username' [(ngModel)]= 'username' ></td>
+         </tr>
+         <br>
+         <br>
+         <tr>
+            <td><label>Password:</label></td>
+            <td><input type="password"name='password' [(ngModel)]= 'password' ></td>
+        </tr>
+        <br>
+        <br>
+</table>
+
+    <button (click)='login()'>Login</button>
+
+</div>  -->
+ <nav class="navbar">
+      
+    <img src="../assets/flogo.png" alt="" width="50" height="50" class="d-inline-block align-top">
+    <p class="h5 my-0 me-md-auto fw-normal text-white">BookReporter</p>
+  </nav> 
+  <div class="main">
+  <div class="myDiv">
+      <img src="..\assets\finalbook.jpg" class="image">
+  </div>
+<div class="wrapper">
+    <form class="form-signin">
+       <h2 class="form-signin-heading">Please login</h2>
+       <input type="text" class="form-control" name="username" [(ngModel)]= 'username'placeholder="Username" required="" autofocus="" />
+       <input type="password" class="form-control" name="password" [(ngModel)]= 'password' placeholder="Password" required=""/>      
+       <label class="checkbox">
+       <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+       </label>
+       <button class="btn btn-lg btn-primary btn-block" type="submit"(click)='login()'>Login</button>   
+    </form>
+ </div>
+</div>
+<div margin-top="300px">
+<router-outlet></router-outlet>
+</div>
+<footer class="footer">
+    <p>@Copyright 2021 all right reserved</p>
+  </footer>
+
+

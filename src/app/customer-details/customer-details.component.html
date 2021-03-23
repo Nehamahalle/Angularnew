@@ -1,0 +1,81 @@
+
+
+<div class="myDiv">
+    <div *ngIf="customer.length">
+        <h1 appDirectives>Customer Details</h1>
+        <div class="form-group" appDirectives>
+          <label for="search-text"><b>Search :</b> </label>
+          <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+                 [(ngModel)]="searchText" placeholder="Enter text to search"
+                 autofocus>
+        </div>
+        <br />
+        <div class="form-group" appDirectives>
+            <label for="search-text"><b>Sort :</b> </label>
+            <select [(ngModel)]='order'>
+                <option value = "true" >Ascending</option>
+                <option value = "false">Descending </option>
+             </select>
+            
+            <!-- <input type="text" class="form-control" id="sort-text" aria-describedby="sort-text"
+                   [(ngModel)]="sortText" placeholder="Enter text to sort"
+                   autofocus> -->
+          </div>
+    <table align="center">
+      <tr>
+        <th appDirectives>Customer ID</th>
+        <th appDirectives>Customer Name</th>
+        <th appDirectives>Email</th>
+        <th appDirectives>Mobile Number</th>
+        <th appDirectives>City</th>
+        <th appDirectives>State</th>
+        <th appDirectives>Image</th>
+       </tr>
+      
+         <tr *ngFor="let customers of customer | filter: {id:searchText,name: searchText,email: searchText}|sort: 'name': order;" appDirectives>
+        
+         
+        <td >
+            <b>
+          {{customers.id}}
+          </b>
+        </td>
+        <td><b>
+          {{customers.name|titlecase}}
+          </b>
+        </td>
+        
+        <td>
+          <b>
+        {{customers.email}}
+        </b>
+      </td>
+      <td>
+        <b>
+      {{customers.MobileNumber}}
+      </b>
+    </td>
+    <td>
+        <b>
+      {{customers.City}}
+      </b>
+    </td>
+    <td>
+        <b>
+      {{customers.State}}
+      </b>
+    </td>
+    <td>
+      <img [src]='customers.customerImage' class='image' />
+    </td>
+       
+      </tr>
+    </table>
+    
+      </div>
+    
+      <div *ngIf="!customer.length">
+        <h1>Products not available.....</h1>
+      </div>
+    </div>
+    

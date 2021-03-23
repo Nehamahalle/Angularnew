@@ -1,0 +1,38 @@
+.myDiv1{
+    float:left;
+    width:40%;
+    height:600px;
+    /* margin-left: 50px; */
+    background-color: lightgray;
+}
+
+.image{
+    height:100%;
+    width:100%;
+    /* margin-left: 150px; 
+}
+.myDiv2{
+    float:right;
+    width:52.5%;
+    height:400px;
+    margin-right: 50px;
+    /* background-color: lightgray; */
+}
+
+  .myPara{
+      background-color: white;
+      margin: 60px;
+  } 
+
+  footer {
+    position: fixed; 
+    left: 0;
+   bottom: 0; 
+   width: 100%;
+   background-color:#004080;
+   color: white;
+   text-align: center;
+}
+.main{
+    background-color:lightgray;
+}

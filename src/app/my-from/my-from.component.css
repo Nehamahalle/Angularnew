@@ -1,0 +1,66 @@
+.container{
+    background-color: lightgray;
+   /* border-color: darkgray;
+   border-style: groove; */
+   height:650px; 
+   width:350px;
+   padding:20px;
+}  
+input.ng.valid{
+   border-right:5px solid green;
+   }
+   
+    
+   
+   input.ng.invalid{
+   border-right:5px solid red;
+   }
+   input{
+    width:300px;
+}
+.myDiv{
+    height:50px;
+    width:350px;
+    background-color:black;
+    color:white;
+}
+button{
+    width:320px;
+}
+.left{
+    
+    float: left;
+    width:40%;
+}
+.left1{
+    
+    float: left;
+    width:40%;
+    height:100%;
+    margin-right: 40px;
+}
+th{
+    padding: 20px;
+    background-color:lightgray;
+    color: white;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: grey;
+}
+.myTable{
+    font-size: 15px;;
+    padding: 20px;
+    border-collapse: collapse;
+    /* border-style: solid;
+    border-color: grey;   */
+    background-color: white; 
+}
+footer {
+    position: fixed; 
+    left: 0;
+   bottom: 0; 
+   width: 100%;
+   background-color:#004080;
+   color: white;
+   text-align: center;
+}

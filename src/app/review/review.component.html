@@ -1,0 +1,259 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="info.length < 4">
+<div class="myDiv">
+  <div>
+    <div *ngIf="review.length" >
+        <!-- <h1 appDirectives>Review</h1> -->
+          <table align="center">
+          <tr >
+            <!-- <td><label for="search-text"><b>Search :</b> </label></td> -->
+            <td> <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+              [(ngModel)]="searchText" placeholder="Enter text to search"
+              autofocus></td>
+              <td><label for="search-text"><b>Sort :</b> </label></td>
+              <td><select [(ngModel)]='order'>
+                <option value = "true" >Ascending</option>
+                <option value = "false">Descending </option>
+             </select></td>
+             
+          </tr>
+           <!-- <tr>
+            <td><button(click)='submitData()'>Update</button></td>
+          </tr>  -->
+          
+        </table>
+                 
+    </div>
+        <br />
+    </div> 
+    <table align="center" id="myTable">
+      <tr>
+        <th appDirectives>Reviewer ID</th>
+        <th appDirectives>Reviewer Name</th>
+        <th appDirectives>Book Review</th>
+        <th appDirectives>Review Date</th>
+        <th appDirectives>Image</th>
+        <th style="background-color: white;"></th>
+        
+       </tr>
+      
+         <tr *ngFor="let reviews of review | filter: {id:searchText,name: searchText,description: searchText,reviewDate: searchText}|sort: 'name': order;;" appDirectives>
+         <!-- | filter: {id:searchText,name: searchText,reviewDate: searchText}|sort: 'name': order;" appDirectives>
+         -->
+         
+        <td >
+            <b>
+          {{reviews.id}}
+          </b>
+        </td>
+        <td><b>
+          {{reviews.name|titlecase}}
+          </b>
+        </td>
+        <td>
+          <b>
+        {{reviews.description}}
+        </b>
+      </td>
+        <td>
+          <b>
+        {{reviews.reviewDate}}
+        </b>
+      </td>
+      <td>
+        <b>
+          <img [src]='reviews.Image' class='image' />
+      
+      </b>
+    </td>
+    <td><button (click)='removeItem(reviews.id)'>Delete</button></td>
+      </tr>
+    </table>
+    
+    
+    
+    
+      <div *ngIf="!review.length">
+        <h1>Reviews not available.....</h1>
+      </div>
+
+     
+</div>
+</div>
+<div *ngIf="info.length > 3">
+  <div class="myDiv">
+    <div>
+      <!-- <div *ngIf="review.length" > -->
+          <!-- <h1 appDirectives>Review</h1> -->
+            <table align="center">
+            <tr >
+              <!-- <td><label for="search-text"><b>Search :</b> </label></td> -->
+              <td> <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+                [(ngModel)]="searchText" placeholder="Enter text to search"
+                autofocus></td>
+                <td><label for="search-text"><b>Sort :</b> </label></td>
+                <td><select [(ngModel)]='order'>
+                  <option value = "true" >Ascending</option>
+                  <option value = "false">Descending </option>
+               </select></td>
+               
+            </tr>
+             <!-- <tr>
+              <td><button(click)='submitData()'>Update</button></td>
+            </tr>  -->
+            
+          </table>
+                   
+      <!-- </div> -->
+          <br />
+      </div> 
+      <table align="center" id="myTable">
+        <tr>
+          <th appDirectives>Reviewer ID</th>
+          <th appDirectives>Reviewer Name</th>
+          <th appDirectives>Book Review</th>
+          <th appDirectives>Review Date</th>
+          <th appDirectives>Image</th>
+          <th style="background-color: white;"></th>
+          
+         </tr>
+        
+           <tr *ngFor="let reviews of info | filter: {id:searchText,name: searchText,description: searchText,reviewDate: searchText}|sort: 'name': order;;" appDirectives>
+           <!-- | filter: {id:searchText,name: searchText,reviewDate: searchText}|sort: 'name': order;" appDirectives>
+           -->
+           
+          <td >
+              <b>
+            {{reviews.id}}
+            </b>
+          </td>
+          <td><b>
+            {{reviews.name|titlecase}}
+            </b>
+          </td>
+          <td>
+            <b>
+          {{reviews.review}}
+          </b>
+        </td>
+          <td>
+            <b>
+          {{reviews.date}}
+          </b>
+        </td>
+        <td>
+          <b>
+            <img [src]='reviews.file' class='image' />
+        
+        </b>
+      </td>
+      <td><button (click)='removeItems(reviews.id)'>Delete</button></td>
+        </tr>
+      </table>
+      
+      
+      
+      
+        <!-- <div *ngIf="!review.length">
+          <h1>Reviews not available.....</h1>
+        </div> -->
+  
+       
+  </div>
+  </div>
+  <div class="addReview">
+    <h3 align="center"><b>Add Review</b></h3>
+    <div class="left">
+      
+      <hr style='background:blue'>
+      <div class='container'>
+         
+       <!-- <form #userForm='ngForm' (ngSubmit)='submitData(userForm.value)'> -->
+       <form [formGroup] = "userForm" (ngSubmit)='submitData()'>
+       
+       <div class='form-group'>
+       <label>Reviewer ID:</label> 
+       <input [class.invalid]="userForm.get('id').invalid && userForm.get('id').touched" formControlName='id' class='form-control'> 
+       
+       <div *ngIf="userForm.get('id').errors?.required" class='text text-danger'>ID is required </div>
+       <div *ngIf="userForm.get('id').errors?.pattern" class='text text-danger'>ID should be valid and Name should be 5 to 15 characters </div> 
+       
+       </div> 
+       
+       <div class='form-group'>
+        <label>Reviewer Name:</label> 
+        <input [class.invalid]="userForm.get('name').invalid && userForm.get('name').touched" formControlName='name' class='form-control'> 
+        
+        <div *ngIf="userForm.get('name').errors?.required" class='text text-danger'>Name is required </div>
+        <div *ngIf="userForm.get('name').errors?.pattern" class='text text-danger'>Name should be valid and Name should be 5 to 15 characters </div> 
+        
+        </div> 
+        <div class='form-group'>
+          <label>Book Review:</label> 
+          <input [class.invalid]="userForm.get('review').invalid && userForm.get('review').touched" formControlName='review' class='form-control'> 
+          
+          <div *ngIf="userForm.get('review').errors?.required" class='text text-danger'>Review is required </div>
+           
+          
+          </div> 
+          <div class='form-group'>
+            <label>Review Date:</label> 
+            <input type="date" [class.invalid]="userForm.get('date').invalid && userForm.get('date').touched" formControlName='date' class='form-control'> 
+            
+            <div *ngIf="userForm.get('date').errors?.required" class='text text-danger'> Required </div>
+            
+            
+            </div> 
+            <div class='form-group'>
+              <label>Upload Image:</label> 
+              <input type="file" [class.invalid]="userForm.get('file').invalid && userForm.get('file').touched" formControlName='file' class='form-control'> 
+              
+              <div *ngIf="userForm.get('file').errors?.required" class='text text-danger'>Required </div>
+              
+              
+              </div>  
+       
+       <button [disabled]='!userForm.valid' type='submit' class='btn btn-success'>Submit</button>
+       
+        <!-- <button(click)='submitData()'>Update</button> -->
+      
+       </form>
+      </div>
+      </div>
+      
+      
+    <!-- <table>
+      <tr>
+        <td >Reviewer ID</td>
+        <td ></td><input type="text"[(ngModel)]="id">></td>
+      </tr>
+      <tr>
+        <td>Reviewer Name</td>
+        <td><input type="text" [(ngModel)]="name">></td>
+      </tr>
+      <tr>
+        <td>Review</td>
+        <td><textarea [(ngModel)]="reviews"></textarea>></textarea></td>
+      </tr>
+      <tr>
+        <td>Review Date</td>
+        <td><input type="date"[(ngModel)]="date">></td>
+      </tr>
+      <tr>
+        <td>Upload Image</td>
+        <td><input type="file"[(ngModel)]="file">></td>
+      </tr>
+    </table>
+  </div> -->
+  <!-- <div>
+    <footer class="footer">
+        <p>@Copyright 2021 all right reserved</p>
+      </footer>
+  </div>     --><br/>
+  <br/>
+  <div>
+    <footer class="footer">
+        <p>@Copyright 2021 all right reserved</p>
+      </footer>
+</div> 
+
